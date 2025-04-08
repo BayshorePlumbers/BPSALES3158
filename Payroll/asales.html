@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'">
+  <!-- Normalize and Modernizr -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" defer></script>
+  
+  <title>Assisted Sales Commission Calculator - Bayshore Plumbers</title>
+  <!-- On-screen style -->
+  <link rel="stylesheet" href="payrollstyle.css" type="text/css">
+  <!-- Print style -->
+  <link rel="stylesheet" href="payrollprint.css" type="text/css" media="print">
+</head>
+<body>
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="logo-container">
+      <img src="BP.png" alt="Bayshore Plumbers Logo" class="logo">
+    </div>
+    <h1>Assisted Sales Commission Calculator</h1>
+  </div>
+  
+  <!-- Main Container -->
+  <main class="container">
+    <section class="calculator">
+      <form id="commissionForm">
+        <!-- Primary Input Table: 3 Rows x 4 Columns -->
+        <table class="input-data">
+          <tbody>
+            <tr>
+              <th>NAME:</th>
+              <td>
+                <input type="text" id="tn" name="tn" placeholder="Enter your name" aria-label="Name">
+              </td>
+              <th>INVOICE NUMBER:</th>
+              <td>
+                <input type="text" id="in" name="in" placeholder="Enter invoice number" aria-label="Invoice Number">
+              </td>
+            </tr>
+            <tr>
+              <th>TECHNICIAN ASSISTED:</th>
+              <td>
+                <input type="text" id="ta" name="ta" placeholder="Enter technician's name" aria-label="Technician Assisted">
+              </td>
+              <th>JOB ADDRESS:</th>
+              <td>
+                <input type="text" id="ja" name="ja" placeholder="Enter job address" aria-label="Job Address">
+              </td>
+            </tr>
+            <tr>
+              <th>TOTAL PRICE:</th>
+              <td>
+                <input type="number" id="tp" name="tp" placeholder="Enter final selling price" min="0" aria-label="Total Price">
+              </td>
+              <th>DATE:</th>
+              <td>
+                <input type="date" id="date" name="date" aria-label="Date">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Job Explanation & Notes -->
+        <table class="input-data">
+          <tbody>
+            <tr>
+              <th colspan="2">JOB EXPLANATION &amp; NOTES:</th>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <textarea id="notes" name="notes" rows="4" placeholder="Enter any relevant notes here" aria-label="Job Explanation and Notes"></textarea>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Commission Output -->
+        <div class="commission-display">
+          Commission: <span id="baseCommission">0.00</span>
+        </div>
+
+        <!-- Buttons -->
+        <div class="button-group">
+          <button type="button" id="calculateBtn" aria-label="Calculate Potential Commission">
+            Calculate Potential Commission
+          </button>
+          <button type="button" id="printButton" aria-label="Print Document">
+            Print
+          </button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- JavaScript -->
+  <script src="asales.js"></script>
+</body>
+</html>

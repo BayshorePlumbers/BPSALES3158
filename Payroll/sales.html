@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Content Security Policy -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://polyfill.io https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'">
+  <!-- Normalize CSS & Modernizr -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" defer></script>
+  <title>Sales Potential Commission Calculator - Bayshore Plumbers</title>
+  <!-- On-screen style -->
+  <link rel="stylesheet" href="payrollstyle.css" type="text/css">
+  <!-- Print style -->
+  <link rel="stylesheet" href="payrollprint.css" type="text/css" media="print">
+</head>
+<body>
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="logo-container">
+      <img src="BP.png" alt="Bayshore Plumbers Logo" class="logo">
+    </div>
+    <h1>Sales Potential Commission Calculator</h1>
+  </div>
+  
+  <!-- Main Container -->
+  <main class="container">
+    <section class="calculator">
+      <form id="commissionForm">
+        <!-- Primary Input Table: Two Rows, Two Columns -->
+        <table class="input-data">
+          <tbody>
+            <tr>
+              <th>NAME:</th>
+              <td>
+                <input type="text" id="tn" name="tn" placeholder="Enter your name here" aria-label="Name">
+              </td>
+              <th>TOTAL PRICE:</th>
+              <td>
+                <input type="number" id="tp" name="tp" placeholder="Enter final selling price" min="0" aria-label="Total Price">
+              </td>
+            </tr>
+            <tr>
+              <th>JOB ADDRESS:</th>
+              <td>
+                <input type="text" id="ja" name="ja" placeholder="Enter job address here" aria-label="Job Address">
+              </td>
+              <th>DATE:</th>
+              <td>
+                <input type="date" id="date" name="date" aria-label="Date">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <!-- Sale Details Table (Full-width row) -->
+        <table class="input-data">
+          <tbody>
+            <tr>
+              <th>SALE DETAILS:</th>
+              <td colspan="3">
+                <select id="job" name="job" aria-label="Sale Details">
+                  <option value="Follow up & Close - From Day 8 to Day 21">Follow up & Close - From Day 8 to Day 21</option>
+                  <option value="Follow up & Close - After Day 21">Follow up & Close - After Day 21</option>
+                  <option value="Billable Hours/ Job Sold">Billable Hours/ Job Sold</option>
+                  <option value="Outreach Effort">Outreach Effort</option>
+                </select>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <!-- Notes Section Table -->
+        <table class="input-data">
+          <tbody>
+            <tr>
+              <th colspan="2">JOB EXPLANATION & NOTES:</th>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <textarea id="notes" name="notes" rows="4" placeholder="Enter Notes Here" aria-label="Job Explanation and Notes"></textarea>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <!-- Commission Output -->
+        <div class="commission-display">
+          Commission: <span id="baseCommission">0.00</span>
+        </div>
+        
+        <!-- Buttons -->
+        <div class="button-group">
+          <button type="button" id="calculateBtn" aria-label="Calculate Potential Commission">Calculate Potential Commission</button>
+          <button type="button" id="printButton" aria-label="Print Document">Print</button>
+        </div>
+      </form>
+    </section>
+  </main>
+  
+  <!-- Main JS and Polyfill -->
+  <script src="sales.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js" defer></script>
+</body>
+</html>
